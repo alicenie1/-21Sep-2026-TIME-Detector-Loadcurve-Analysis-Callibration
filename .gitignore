@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+frontend/node_modules/
+frontend/dist/
+
+backend/server_storage/uploads/
+backend/server_storage/generated/
+backend/server_storage/previews/
+backend/server_storage/metadata/
+backend/server_storage/file_index.json
+
+outputs/
+smoke_tmp/
+.codex/
