@@ -85,3 +85,38 @@ export default function App() {
           View graph pages and report text by column, download PDFs, and run analysis on uploaded
           NumPy files.
         </p>
+      </header>
+
+      <section className="controls">
+        <FileSelector
+          files={files}
+          selectedFileId={selectedFileId}
+          onChange={setSelectedFileId}
+          disabled={filesLoading}
+        />
+        <ColumnSelector
+          selectedColumn={selectedColumn}
+          onChange={setSelectedColumn}
+          disabled={!selectedFileId || columnLoading}
+        />
+        <UploadAnalysis onRun={handleRunAnalysis} />
+      </section>
+
+      {filesError ? <div className="panel status error">{filesError}</div> : null}
+      {filesLoading ? <div className="panel status">Loading files...</div> : null}
+
+      <section className="panel download-panel">
+        <div>
+          Selected File: <strong>{selectedFile ? selectedFile.name : "None"}</strong>
+        </div>
+        {selectedFile ? (
+          <a className="download-button" href={`${API_BASE}${selectedFile.download_url}`}>
+            Download PDF
+          </a>
+        ) : null}
+      </section>
+
+      <PdfColumnViewer columnData={columnData} loading={columnLoading} error={columnError} />
+    </main>
+  );
+}
