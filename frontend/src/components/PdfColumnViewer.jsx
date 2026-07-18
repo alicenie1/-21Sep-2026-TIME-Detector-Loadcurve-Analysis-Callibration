@@ -1,12 +1,6 @@
 import { API_BASE } from "../api";
 
 export default function PdfColumnViewer({ columnData, loading, error }) {
-  ...
-        <img
-          src={`${API_BASE}${columnData.graph_image_url}`}
-          alt={`Column ${columnData.column} graph`}
-          className="graph-image"
-        />export default function PdfColumnViewer({ columnData, loading, error }) {
   if (loading) {
     return <div className="panel status">Loading selected column...</div>;
   }
@@ -26,7 +20,7 @@ export default function PdfColumnViewer({ columnData, loading, error }) {
           Graph Page {columnData.graph_page_number} (Column {columnData.column})
         </div>
         <img
-          src={columnData.graph_image_url}
+          src={`${API_BASE}${columnData.graph_image_url}`}
           alt={`Column ${columnData.column} graph`}
           className="graph-image"
         />
