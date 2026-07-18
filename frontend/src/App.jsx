@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import { getColumn, listFiles, runAnalysis } from "./api";
+import { API_BASE, getColumn, listFiles, runAnalysis } from "./api";
+...
+          <a className="download-button" href={`${API_BASE}${selectedFile.download_url}`}>
 import ColumnSelector from "./components/ColumnSelector";
 import FileSelector from "./components/FileSelector";
 import PdfColumnViewer from "./components/PdfColumnViewer";
